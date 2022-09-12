@@ -1,135 +1,73 @@
-package assignementCollection;
+package assignment02;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
-class Employee implements Comparable<Employee>{
-	private int empId;
-	private String empName;
-	private String empEmail;
-	private char empGender;
-	private float empSalary;
-	private ArrayList<Employee> newEmp;
+class Customer{
+	private String name;
+	private String address;
+	private Integer date;
+	private String product;
+	private Integer price;
+	private String paymentType;
 	
-	
-	Employee(int empId, String empName, String empEmail, char empGender, float empSalary) {
-		this.empId = empId;
-		this.empName = empName;
-		this.empEmail= empEmail;
-		this.empGender = empGender;
-		this.empSalary = empSalary;
+	public Customer(String name, String address, Integer date, String product, Integer price, String paymentType) {
+		this.name = name;
+		this.address = address;
+		this.date = date;
+		this.product = product;
+		this.price = price;
+		this.paymentType = paymentType;
 	}
 
-
-	public Employee(ArrayList<Employee> newEmp) {
-		this.newEmp = newEmp;
+	public String getName() {
+		return name;
 	}
 
-
-	public int getEmpId() {
-		return empId;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-
-	public void setEmpId(int empId) {
-		this.empId = empId;
+	public String getAddress() {
+		return address;
 	}
 
-
-	public String getEmpName() {
-		return empName;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-
-	public void setEmpName(String empName) {
-		this.empName = empName;
+	public Integer getDate() {
+		return date;
 	}
 
-
-	public String getEmpEmail() {
-		return empEmail;
+	public void setDate(Integer date) {
+		this.date = date;
 	}
 
-
-	public void setEmpEmail(String empEmail) {
-		this.empEmail = empEmail;
+	public String getProduct() {
+		return product;
 	}
 
-
-	public char getEmpGender() {
-		return empGender;
+	public void setProduct(String product) {
+		this.product = product;
 	}
 
-
-	public void setEmpGender(char empGender) {
-		this.empGender = empGender;
+	public Integer getPrice() {
+		return price;
 	}
 
-
-	public float getEmpSalary() {
-		return empSalary;
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 
-
-	public void setEmpSalary(float empSalary) {
-		this.empSalary = empSalary;
-	}
-		
-		
-	@Override
-	public String toString() {
-		return "Employee [empId: " + empId + ", empName: " + empName + ", empEmail: " + empEmail + ", empGender: "
-				+ empGender + ", empSalary: " + empSalary + "]";
-	}	
-
-
-	void printDetails() {
-		Iterator<Employee> it = newEmp.iterator();
-		while(it.hasNext()) {
-			System.out.println(it.next());
-		}		
-	}
-	boolean addEmployee(int empId,String empName, String empEmail, char empGender,float empSalary) {
-		newEmp.add(new Employee (empId, empName, empEmail, empGender,empSalary));
-		return true;
-	}
-	boolean removeEmployee(int id) {
-		Iterator<Employee> it = newEmp.iterator();
-		while(it.hasNext()) {
-			Employee emp = it.next();
-			int id1 = emp.empId;
-			if(id == id1) {
-				newEmp.remove(emp);
-			}
-		}
-		return true;
-	}
-	boolean showSlip(int id) {
-		Iterator<Employee> it = newEmp.iterator();
-		while(it.hasNext()) {
-			Employee emp = it.next();
-			int id2 = emp.empId;
-			if(id == id2) {
-				System.out.println("Salary Slip:  "  + emp.empSalary );
-			}
-			
-		}		
-		return true;
+	public String getPaymentType() {
+		return paymentType;
 	}
 
-	@Override
-	public int compareTo(Employee emp) {
-			if(this.empId == emp.getEmpId())
-				return 0;
-			else if(this.empId > emp.getEmpId())
-				return 1;
-			else {
-				return -1;
-			}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
 	}
 	
 }
@@ -138,135 +76,56 @@ public class Answer2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		ArrayList<Employee>	newEmp = new ArrayList<Employee>();
-		Employee emp = null;
-	
-		String req = "y";
-		System.out.println("****************************** Answer 1 ****************");
-		while(req.equalsIgnoreCase("y")) {
-			System.out.print("enter the employeeId: ");
-			int empId = sc.nextInt();
+		List<Customer> list = new ArrayList<Customer>();
+		
+		list.add(new Customer("Rajan Patil", "Aundh", 1, "Phone Cover", 170, "Cash"));
+		list.add(new Customer( "Gupta", "Baner", 1, "Samsung Battery", 900, "Credit Card"));
+		list.add(new Customer(" Patil", "Aundh", 3, "Samsung Battery", 1000, "Cash"));
+		list.add(new Customer(" Kothari", "Baner", 4, "Earphones", 500, "Credit Card"));
+		list.add(new Customer("T Sunitha", "Shivajinagar", 5, "Earphones",550, "Credit Card"));
+		list.add(new Customer("Rohan Gade", "Aundh", 10, "Motorola Battery", 1000, "Credit Card"));
+		list.add(new Customer("Rajan Patil", "Shivajinagar", 21, "Earphones", 550, "Credit Card"));
+		list.add(new Customer("Rajan Patil", "Aundh", 22, "USB Cable",150, "UPI"));
+		list.add(new Customer("Meena Kothari", "Baner", 23, "USB Cable",100, "Cash"));
+		list.add(new Customer("Nina Kothari", "Baner", 24, "USB Cable",200, "UPI"));
+		list.add(new Customer("Mohit Gupta", "Baner", 25, "USB Cable",50, "UPI"));
+		
+		System.out.print("Enter the productName for find which person buy on discounted price : ");
+		String productName = sc.nextLine();
+		
+		Iterator<Customer> it = list.iterator();
+		
+		List<Integer> price  = new ArrayList<Integer>();
+		
+		Integer temp = 0;
+		while(it.hasNext()) {
+			Customer values = it.next();
+			String productNameInList = values.getProduct();
 			
-			System.out.print("enter the empoyleeName: ");
-			String empName = sc.next();
-			
-			System.out.print("enter the employeeEmail: ");
-			String empEmail = sc.next();
-			
-			System.out.print("enter the employeeGender: ");
-			char empGender = sc.next().charAt(0);
-			
-			System.out.print("enter the employeeSalary: ");
-				float empSalary = sc.nextFloat();
-			
-				newEmp.add(new Employee(empId, empName, empEmail, empGender,empSalary));
-				emp = new Employee(newEmp);
-				
-				System.out.println("********** Employee added successfully ***********");
-				
-				System.out.println("want to continue [y/n]: ");
-			req = sc.next();	
+			if(productName.equals(productNameInList)) {
+				Integer productPrice = values.getPrice();
+				temp++;
+				price.add(productPrice);
+			}
 		}
-					
-		emp.printDetails();
-	
-// -------------------------------------Answer1 : ( i ) end---------------************************************--------------------------------------------------------------
-	
-		String req2 = "y";
-		System.out.println("************************** Answer1 : (i) *******************");
-		while(req2.equalsIgnoreCase("y")) {
-			System.out.println("Enter the Method you Want to do: \n 1. Add Employee \n 2. Delete Employee \n 3. ShowPaySlip \n 4. ShowAll \n 5.InsertEmployee using TreeSet then Exit");
-			int option = sc.nextInt();
-			switch(option) {
-				case 1:{
-					String req3 = "y";
-					while(req3.equalsIgnoreCase("y")) {
-						System.out.print("enter the employeeId: ");
-						int empId = sc.nextInt();
-						
-						System.out.print("enter the empoyleeName: ");
-						String empName = sc.next();
-						
-						System.out.print("enter the employeeEmail: ");
-						String empEmail = sc.next();
-						
-						System.out.print("enter the employeeGender: ");
-						char empGender = sc.next().charAt(0);
-						
-						System.out.print("enter the employeeSalary: ");
-							float empSalary = sc.nextFloat();
-						
-						
-							emp.addEmployee(empId, empName, empEmail, empGender,empSalary);
-							System.out.println("********** Employee added successfully ***********");
-							
-							System.out.print("want to continue [y/n]: ");
-							req3 = sc.next();	
-						}
-					break;
-					}
-				case 2:{
-					System.out.print("Enter the Employee Id you want to Delete: ");
-					int id = sc.nextInt();
-					
-					emp.removeEmployee(id);
-					System.out.println("************* Employee Deleted Succesfully ***********");
-					break;
-					
+		Integer discountedPrice = price.stream().min(Integer::compare).get();
+		
+		//System.out.println(discountedPrice);
+		
+		Iterator<Customer> it2 = list.iterator();
+		while(it2.hasNext()) {
+			Customer values = it2.next();
+			Integer getPriceFromList = values.getPrice();
+			
+			if(discountedPrice == getPriceFromList) {
+				if(temp == 1) {
+					System.out.print(values.getName() + " has bought " + values.getProduct() + " has not any discounted price  " + discountedPrice +" ;");
 				}
-				case 3:{
-					System.out.print("Enter the Employee Id you want see Salary : ");
-					int id = sc.nextInt();
-					emp.showSlip(id);
-					break;
-				}
-				case 4:{
-					emp.printDetails();
-					break;
-				}
-				case 5:{
-				//	************************* Answer 2 (ii) Adding Employee using TreeSet ***********************************
-					System.out.println("**************************** Answer 2 (ii) Adding Employee using TreeSet ***********");
-					Set<Employee> newEmpSet = new TreeSet<Employee>();
-					
-						String req4 = "y";
-						while(req4.equalsIgnoreCase("y")) {
-							System.out.print("enter the employeeId: ");
-							int empId = sc.nextInt();
-							
-							System.out.print("enter the empoyleeName: ");
-							String empName = sc.next();
-							
-							System.out.print("enter the employeeEmail: ");
-							String empEmail = sc.next();
-							
-							System.out.print("enter the employeeGender: ");
-							char empGender = sc.next().charAt(0);
-							
-							System.out.print("enter the employeeSalary: ");
-								float empSalary = sc.nextFloat();
-							
-								Employee emp1 = new Employee(empId, empName, empEmail, empGender,empSalary);
-								newEmpSet.add(emp1);
-								System.out.println("********** Employee added successfully ***********");
-								
-								System.out.print("want to continue [y/n]: ");
-								req4 = sc.next();	
-							}
-						///Enumeration<Employee> em = ((Object) newEmpSet).elements();
-						Iterator<Employee> xyz = newEmpSet.iterator();
-						while(xyz.hasNext()) {
-							Employee values = xyz.next();
-							System.out.println(values.toString());
-						}
-						
-
-					System.out.println("******************  Developed By Sharib Saifi *****************");
-					System.exit(0);
+				else {
+					System.out.print(values.getName() + " has bought " + values.getProduct() + " in discounted price i.e " + discountedPrice+" ;");
 				}
 			}
 		}
-		
 	}
 
 }
