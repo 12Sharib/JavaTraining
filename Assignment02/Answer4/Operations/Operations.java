@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import co.Assignment02.Answer4.Mapper.inputMapper;
+import co.Assignment02.Answer4.Mapper.InputMapper;
 import co.Assignment02.Answer4.Student.Student;
 
 

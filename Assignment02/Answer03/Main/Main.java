@@ -4,17 +4,16 @@ import java.util.List;
 
 import co.Assignment02.Answer03.Library.Library;
 import co.Assignment02.Answer03.Operations.Operations;
-import co.Assignment02.Answer03.inputMapper.inputMapper;
+import co.Assignment02.Answer03.inputMapper.InputMapper;
 
 
 public class Main {
-
 	public static void main(String[] args) {
 		
 		try {
 			String path = "/home/mohds/java/JavaAssignments/src/co/Assignment02/Answer03/inputFile/input";
 			
-			inputMapper parseInput = new inputMapper();
+			InputMapper parseInput = new InputMapper();
 			List<Library> input = parseInput.parseFile(path);
 		
 			Operations op = new Operations(input);

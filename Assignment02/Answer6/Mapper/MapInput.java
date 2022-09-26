@@ -18,7 +18,8 @@ public class MapInput {
 			candidate.setPlace(candidatePlace);
 			candidate.setCandidateVotes(candidateVotes);
 			
-			
+		}catch(NumberFormatException numberFormat) {
+			throw new RuntimeException(numberFormat);
 		}catch(Exception ex) {
 			throw new RuntimeException(ex);
 		}

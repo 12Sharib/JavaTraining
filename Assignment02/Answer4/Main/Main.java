@@ -5,14 +5,13 @@ import java.util.List;
 
 import co.Assignment02.Answer4.Operations.Operations;
 import co.Assignment02.Answer4.Student.Student;
-import co.Assignment02.Answer4.studentMapper.studentMapper;
+import co.Assignment02.Answer4.studentMapper.StudentMapper;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 		try {
-			studentMapper inputParser = new studentMapper();
-			
+			StudentMapper inputParser = new StudentMapper();
 			String path = "/home/mohds/java/JavaAssignments/src/co/Assignment02/Answer4/inputFile/input";
 			List<Student> input = inputParser.parseFile(path);	
 			

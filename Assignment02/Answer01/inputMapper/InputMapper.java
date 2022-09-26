@@ -1,4 +1,4 @@
-package co.Assignment02.Answer6.inputMapper;
+package co.Assignment02.Answer01.inputMapper;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,30 +7,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import co.Assignment02.Answer6.Candidate.Candidate;
-import co.Assignment02.Answer6.Mapper.MapInput;
+import co.Assignment02.Answer01.Mapper.MapInput;
+import co.Assignment02.Answer01.Software.Software;
 
 public class InputMapper {
-	public List<Candidate> parseInput(String path){
-		
-		List<Candidate> list = new ArrayList<>();
+	public List<Software> parseFile(String path){
+	
+		List<Software> list = new ArrayList<>();
 		File file = new File(path);
 		BufferedReader bufferReader = null;
 		try {
 			bufferReader = new BufferedReader(new FileReader(file));
 			String st;
 			while((st = bufferReader.readLine()) != null) {
-				Candidate candidate = MapInput.map(st);
+				Software software = MapInput.map(st);
 				
-				list.add(candidate);
+				list.add(software);
 			}
 		}catch(IOException ioException) {
 			throw new RuntimeException(ioException);
-		}catch(Exception ex) {
-			throw new RuntimeException(ex);
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
 		}
 		return list;
-		
 	}
 }

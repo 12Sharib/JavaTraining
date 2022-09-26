@@ -3,16 +3,10 @@ package co.Assignment02.Answer01.Operations;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import co.Assignment02.Answer01.Software.Software;
-import co.Assignment02.Answer02.Customer.Customer;
-
 
 public class Operations {
 	private List<Software> list = new ArrayList<>();
@@ -62,10 +56,7 @@ public class Operations {
 					break;
 				}
 			}
-		}
-		
-		
-		
+		}		
 	}
 
 

@@ -14,6 +14,8 @@ public class MapInput {
 			customer.setName(customerName);
 			customer.setProduct(product);
 			customer.setPrice(productPrice);
+		}catch(NumberFormatException numberFormat) {
+			throw new RuntimeException(numberFormat);
 		}catch(Exception ex) {
 			throw new RuntimeException(ex);
 		}

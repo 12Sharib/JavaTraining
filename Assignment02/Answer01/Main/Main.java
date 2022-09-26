@@ -4,14 +4,14 @@ import java.util.List;
 
 import co.Assignment02.Answer01.Operations.Operations;
 import co.Assignment02.Answer01.Software.Software;
-import co.Assignment02.Answer01.inputMapper.inputMapper;
+import co.Assignment02.Answer01.inputMapper.InputMapper;
 
 public class Main {
 
 	public static void main(String[] args) {
 		try {
 			String path = "/home/mohds/java/JavaAssignments/src/co/Assignment02/Answer01/inputFile/input";
-			inputMapper parseInput = new inputMapper();
+			InputMapper parseInput = new InputMapper();
 			
 			List<Software> input = parseInput.parseFile(path);
 			Operations op = new Operations(input);

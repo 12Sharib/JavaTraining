@@ -9,17 +9,18 @@ import co.Assignment02.Answer6.inputMapper.InputMapper;
 
 public class Main {
 	public static void main(String[] args) {
-
-		
-		String path ="/home/mohds/java/JavaAssignments/src/co/Assignment02/Answer6/inputFile/input";
-		
-		InputMapper parseFile = new InputMapper();
-		
-		List<Candidate> input = parseFile.parseInput(path);
-	
-		
-		Operations op = new Operations(input);
-		op.getAllPlaces();
+		try {
+			String path ="/home/mohds/java/JavaAssignments/src/co/Assignment02/Answer6/inputFile/input";
+			
+			InputMapper parseFile = new InputMapper();
+			
+			List<Candidate> input = parseFile.parseInput(path);
+			Operations op = new Operations(input);
+			op.getAllPlaces();
+			
+		}catch(Exception ex) {
+			throw new RuntimeException(ex);
+		}
 
 	}
 

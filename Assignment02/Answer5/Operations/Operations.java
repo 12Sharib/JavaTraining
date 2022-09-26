@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import co.Assignment02.Answer5.HighestSalary.HighestSalary;
-import co.Assignment02.Answer5.Mapper.mapInput;
+import co.Assignment02.Answer5.Mapper.MapInput;
 
 public class Operations {
 	private List<HighestSalary> list = new ArrayList<>();
